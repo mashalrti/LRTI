@@ -17,7 +17,7 @@ SRR3308975
 for srr in $SRR # $: valeur de la variable
 do
 # Produces one fastq file, single end data. 
-fastq-dump $srr -O $data/sra_data -X 10000 #on prend les 4 premiers reads. Mettre 10 000
+fastq-dump $srr -O $data/sra_data -X 10000 #on prend les 10 000 premiers reads
 
 # rename sequence names
 #awk  -F "\."  '{ if (NR%2 == 1 ) { $3= "" ; print $1 "_" $2 "/1"}  else  { print $0} }'
