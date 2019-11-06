@@ -1,0 +1,8 @@
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308956_1.fastq /home/rstudio/disk/sra_data/SRR3308956_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308956_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308956_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308956_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308956_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
