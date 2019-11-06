@@ -14,7 +14,7 @@ cd sra_data # Et on se met dedans
 #"
 #responder before after before after treatment
 
-SRR = "SRR3308956
+SRR="SRR3308956
 SRR3308957
 "
 #responder before and after
