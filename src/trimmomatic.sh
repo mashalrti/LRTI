@@ -1,5 +1,4 @@
 #! /bin/bash
-## Run trimmomatic
 
 data="/home/rstudio/disk"
 cd $data
@@ -8,8 +7,6 @@ cd trimmo_files
 mkdir -p paired # On va séparer les outputs paired et unpaired
 mkdir -p unpaired
 
-#SRR=`ls /home/rstudio/disk/sra_data/*.fastq`
-#SRR=`ls /home/rstudio/disk/sra_data/SRR33089[56-75]*.fastq
 SRR="
 SRR3308956
 SRR3308957
@@ -18,6 +15,7 @@ SRR3308973
 SRR3308974
 SRR3308975
 "
+# Le plus simple était d'écrire les noms à la main car il faut ensuite prendre les _1 et _2
 
 for fn in $SRR;
 do

@@ -6,3 +6,55 @@ Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
 ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
 Quality encoding detected as phred33
+Input Read Pairs: 26772649 Both Surviving: 22973999 (85.81%) Forward Only Surviving: 2194395 (8.20%) Reverse Only Surviving: 307559 (1.15%) Dropped: 1296696 (4.84%)
+TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308957_1.fastq /home/rstudio/disk/sra_data/SRR3308957_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308957_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308957_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308957_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308957_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 23174695 Both Surviving: 18159715 (78.36%) Forward Only Surviving: 1923109 (8.30%) Reverse Only Surviving: 187128 (0.81%) Dropped: 2904743 (12.53%)
+TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308972_1.fastq /home/rstudio/disk/sra_data/SRR3308972_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308972_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308972_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308972_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308972_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 24633841 Both Surviving: 19963695 (81.04%) Forward Only Surviving: 2794230 (11.34%) Reverse Only Surviving: 205895 (0.84%) Dropped: 1670021 (6.78%)
+TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308973_1.fastq /home/rstudio/disk/sra_data/SRR3308973_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308973_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308973_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308973_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308973_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 19915840 Both Surviving: 16369297 (82.19%) Forward Only Surviving: 2380406 (11.95%) Reverse Only Surviving: 172351 (0.87%) Dropped: 993786 (4.99%)
+TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308974_1.fastq /home/rstudio/disk/sra_data/SRR3308974_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308974_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308974_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308974_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308974_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 22124058 Both Surviving: 17721515 (80.10%) Forward Only Surviving: 2722823 (12.31%) Reverse Only Surviving: 197437 (0.89%) Dropped: 1482283 (6.70%)
+TrimmomaticPE: Completed successfully
+TrimmomaticPE: Started with arguments:
+ -threads 8 /home/rstudio/disk/sra_data/SRR3308975_1.fastq /home/rstudio/disk/sra_data/SRR3308975_2.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308975_paired_output_1.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308975_unpaired_output_1.fastq /home/rstudio/disk/trimmo_files/paired/SRR3308975_paired_output_2.fastq /home/rstudio/disk/trimmo_files/unpaired/SRR3308975_unpaired_output_2.fastq ILLUMINACLIP:/home/rstudio/disk/overrepresented.fa:2:30:10 LEADING:22 SLIDINGWINDOW:4:22 MINLEN:25
+Using Long Clipping Sequence: 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCC'
+Using Long Clipping Sequence: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCAGAACTCCAGTCACAGCATGATCTCGTATG'
+ILLUMINACLIP: Using 0 prefix pairs, 4 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 18860298 Both Surviving: 15438815 (81.86%) Forward Only Surviving: 2264715 (12.01%) Reverse Only Surviving: 154970 (0.82%) Dropped: 1001798 (5.31%)
+TrimmomaticPE: Completed successfully
