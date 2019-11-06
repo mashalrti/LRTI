@@ -1,0 +1,40 @@
+ls: cannot access '*.fastq': No such file or directory
+/home/rstudio/disk/sra_data:
+Skipping '/home/rstudio/disk/sra_data//home/rstudio/disk/sra_data:' which didn't exist, or couldn't be read
+SRR3308972_1.fastq
+Started analysis of SRR3308972_1.fastq
+Approx 5% complete for SRR3308972_1.fastq
+Approx 10% complete for SRR3308972_1.fastq
+Approx 15% complete for SRR3308972_1.fastq
+Approx 20% complete for SRR3308972_1.fastq
+Approx 25% complete for SRR3308972_1.fastq
+Approx 30% complete for SRR3308972_1.fastq
+Approx 35% complete for SRR3308972_1.fastq
+Approx 40% complete for SRR3308972_1.fastq
+Approx 45% complete for SRR3308972_1.fastq
+Approx 50% complete for SRR3308972_1.fastq
+Approx 55% complete for SRR3308972_1.fastq
+Approx 60% complete for SRR3308972_1.fastq
+Approx 65% complete for SRR3308972_1.fastq
+Approx 70% complete for SRR3308972_1.fastq
+Approx 75% complete for SRR3308972_1.fastq
+Approx 80% complete for SRR3308972_1.fastq
+Approx 85% complete for SRR3308972_1.fastq
+Approx 90% complete for SRR3308972_1.fastq
+Approx 95% complete for SRR3308972_1.fastq
+Analysis complete for SRR3308972_1.fastq
+SRR3308972_2.fastq
+Started analysis of SRR3308972_2.fastq
+Approx 5% complete for SRR3308972_2.fastq
+Approx 10% complete for SRR3308972_2.fastq
+./get_fastq.sh: line 17: SRR: command not found
+Approx 15% complete for SRR3308972_2.fastq
+Approx 20% complete for SRR3308972_2.fastq
+Approx 25% complete for SRR3308972_2.fastq
+Approx 30% complete for SRR3308972_2.fastq
+Approx 35% complete for SRR3308972_2.fastq
+Approx 40% complete for SRR3308972_2.fastq
+Approx 45% complete for SRR3308972_2.fastq
+Approx 50% complete for SRR3308972_2.fastq
+Approx 55% complete for SRR3308972_2.fastq
+Approx 60% complete for SRR3308972_2.fastq

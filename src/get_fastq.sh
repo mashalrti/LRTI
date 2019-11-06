@@ -7,12 +7,17 @@ cd $data # On se met dedans
 mkdir -p sra_data # On crée un nouveau dossier sra_data
 cd sra_data # Et on se met dedans
 
-SRR="SRR3308972
-SRR3308973
-SRR3308974
-SRR3308975
-"
+#SRR="SRR3308972
+#SRR3308973
+#SRR3308974
+#SRR3308975
+#"
 #responder before after before after treatment
+
+SRR = "SRR3308956
+SRR3308957
+"
+#responder before and after
 
 for srr in $SRR # $: valeur de la variable: on parcourt les échantillons dans $SRR
 do
