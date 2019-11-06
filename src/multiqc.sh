@@ -1,4 +1,5 @@
 #! /bin/bash
-multiqc
+cd /home/rstudio/disk/fastqc_files
 
+multiqc .
 
