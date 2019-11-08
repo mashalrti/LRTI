@@ -1,7 +1,7 @@
 #! /bin/bash
 
 cd /home/rstudio/disk
-mkdir -p star/index
+#mkdir -p star/index
 
 #Liste des SRR d'intérêt
 SRR="
@@ -16,8 +16,8 @@ SRR3308975
 #génération de l'index du génome humain annoté, avec 8 coeurs
 #STAR --runThreadN 8 --runMode genomeGenerate \
 #  --genomeDir star/index \
-#  --genomeFastaFiles /home/rstudio/disk/ref_transcripts/Hsap_copy_genome.fa \
-#  --sjdbGTFfile /home/rstudio/disk/ref_transcripts/Hsap_copy_annotation.gtf \
+#  --genomeFastaFiles /home/rstudio/disk/ref_transcripts/Hsap_genome.fa \
+#  --sjdbGTFfile /home/rstudio/disk/ref_transcripts/Hsap_annotation.gtf \
 #  --sjdbOverhang 100
 
 paired=/home/rstudio/disk/trimmo_files/paired
