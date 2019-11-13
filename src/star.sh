@@ -1,5 +1,16 @@
 #! /bin/bash
 
+#cd /home/rstudio/disk/ref_transcripts
+#Indexer des génomes demande beaucoup de RAM et nous n'arrivons pas à générer l'index entier
+#On a essayé de rajouter '--genomeChrBinNbits=min(18, log2(GenomeLength/NumberOfReferences))' mais cela n'a pas résolu le problème.
+#Donc on va faire un subset du génome
+#en ne gardant que les chromosomes.
+#D'abord, on récupère les headers qu'on veut garder:
+#grep ">"  Hsap_genome.fa |grep -v "_" |sed 's/>//g'> chr.txt
+#Puis onnnn extrait du génome juste les headers choisis:
+#xargs samtools faidx Hsap_genome.fa < chr.txt > genome_chr.fa
+#J'ai vérifié que genome_chr.fa contient seulement les chromosomes et je lance l'index sur genoms_chr.fa
+
 cd /home/rstudio/disk
 #mkdir -p star/index
 
@@ -16,7 +27,7 @@ SRR3308975
 #génération de l'index du génome humain annoté, avec 8 coeurs
 #STAR --runThreadN 8 --runMode genomeGenerate \
 #  --genomeDir star/index \
-#  --genomeFastaFiles /home/rstudio/disk/ref_transcripts/Hsap_genome.fa \
+#  --genomeFastaFiles /home/rstudio/disk/ref_transcripts/genome_chr.fa \
 #  --sjdbGTFfile /home/rstudio/disk/ref_transcripts/Hsap_annotation.gtf \
 #  --sjdbOverhang 100
 
@@ -27,8 +38,8 @@ do
 #echo $srr
 #echo $paired/$srr'_paired_output_1.fastq'
 #Création d'un nouveau répertoire
-cd /home/rstudio/disk
-mkdir star/$srr'_star'
+#cd /home/rstudio/disk
+mkdir /home/rstudio/disk/star/$srr'_star'
 cd star/$srr'_star'
 #Quantification des reads
 STAR --runThreadN 8 --genomeDir /home/rstudio/disk/star/index \
