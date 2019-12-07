@@ -1,3 +1,4 @@
+# Ici on télécharge le génome d'Homo sapiens
 cd /home/rstudio/disk/ref_transcripts
 
 #Télécharge une URL, -O : output
