@@ -14,7 +14,7 @@ SRR3308975
 "
 
 # D'abord on génère les bam triés :
-cd /home/rstudio/disk/star/
+#cd /home/rstudio/disk/star/
 # qualimap demande d'avoir des bam triés par nom
 #@ nb de coeurs utilisés
 #for srr in $SRR;
@@ -36,9 +36,13 @@ for srr in $SRR;
 do
 echo $srr
 qualimap rnaseq \
-  -gtf /home/rstudio/disk/ref_transcripts/Hsap_annotation.gtf
+  -gtf /home/rstudio/disk/ref_transcripts/Hsap_annotation.gtf \
   -outdir /home/rstudio/disk/qualimap_output/$srr'_quali' \
-  -outfile /home/rstudio/disk/qualimap_output/$srr'_quali'/$srr'_qualimap.pdf'
+  -outfile /home/rstudio/disk/qualimap_output/$srr'_quali'/$srr'_qualimap.pdf' \
   -bam /home/rstudio/disk/SRR_tri_bam/$srr'_trie'.bam \
-  -s,--sorted
+  -pe \
+  -s \
+  --java-mem-size=20G \
+  -p strand-specific-forward \
+  -a proportional
 done

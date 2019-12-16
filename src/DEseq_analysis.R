@@ -30,4 +30,4 @@ txi <- tximport(files, type="salmon", tx2gene=tx2gene)
 txi$counts
 
 # Et on construit un 'DESeqDataSet' à partir de txi en utilisant les noms contenus dans samples
-ddsTxi <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ run)
+ddsTxi <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ time)
