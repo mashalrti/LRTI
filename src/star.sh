@@ -41,7 +41,7 @@ do
 
 #Création d'un nouveau répertoire pour stocker le résultat :
 mkdir /home/rstudio/disk/star/$srr'_star'
-cd star/$srr'_star'
+cd /home/rstudio/disk/star/$srr'_star'
 
 # Quantification des reads :
 STAR --runThreadN 8 --genomeDir /home/rstudio/disk/Corentin/hg38_genome \
