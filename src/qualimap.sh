@@ -32,6 +32,8 @@ SRR3308975
 cd /home/rstudio/disk/
 mkdir -p qualimap_output
 
+# 
+
 for srr in $SRR;
 do
 echo $srr

@@ -13,8 +13,8 @@ dir <- "/home/rstudio/disk/salmon_quant" # Ici mettre le dossier dans lequel vou
 condition <- read.delim("~/disk/condition.csv")
 samples <- data.frame(run=condition$Run, type=condition$subject_group, sex=condition$gender, time=condition$time_point, patient=condition$subject_id)
 #files <- file.path(dir, "salmon", samples$run, "quant.sf")
-samples$run = c("SRR3308956paired_quant", "SRR3308957paired_quant", "SRR3308972paired_quant", "SRR3308973paired_quant",
-                "SRR3308974paired_quant", "SRR3308975paired_quant") # Je change les lignes pour correspondre aux noms de mes dossiers
+samples$run = c("SRR3308956paired_quant", "SRR3308957paired_quant", "SRR3308973paired_quant",
+                "SRR3308974paired_quant", "SRR3308975paired_quant", "SRR3308976paired_quant") # Je change les lignes pour correspondre aux noms de mes dossiers
 files <- file.path(dir, samples$run, "quant.sf") # On va chercher le fichier avec la quantification
 names(files) <- samples$run
 
@@ -31,3 +31,61 @@ txi$counts
 
 # Et on construit un 'DESeqDataSet' à partir de txi en utilisant les noms contenus dans samples
 ddsTxi <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ time)
+
+# On fait l'analyse différentielle :
+ddsTxi = DESeq(ddsTxi)
+res = results(ddsTxi)
+summary(res)
+
+# Maintenant on shrink, comme conseillé dans le papier DESeq2. On regarde les plus grands fold changes pour les gènes avec bcp d'information
+#statistique (changer de 1000 à 5000 n'est pas pareil que de changer de 1 à 5. Les petites différences peuvent etre dues à du bruit de fond)
+# Ici je compare avec et sans shrinkage
+resLFC <- lfcShrink(ddsTxi, coef="time_before.bevacizumab.combination.treatment_vs_after.bevacizumab.combination.treatment", type="apeglm")
+resLFC
+summary(resLFC)
+# Je plotte les données shrinkées et non shrinkées :
+plotMA(resLFC) #ou
+plotMA(ddsTxi)
+
+
+# Maintenant je classe par p value les résultats :
+resOrdered <- res[order(res$pvalue),]
+head(resOrdered)
+
+# Et je me demande combien j'ai d'échantillons avec p-value < 0.1 :
+sum(res$padj < 0.1, na.rm=TRUE)
+
+# Maintenant je vais faire une PCA pour visualiser quels facteurs sont responsables des différences observées :
+# VST est un algo de stabilisation de la variance (normalisation par rapport à la taille de la bibliothèque)
+# blind = TRUE par défaut, mais cette option attribuerait bcp de différences 'vraies' à du bruit ; le tuto propose de définir blind = FALSE
+vsd <- vst(ddsTxi, blind=FALSE)
+#rld <- rlog(ddsTxi, blind=FALSE)
+head(assay(vsd), 3)
+
+# Maintenant je plotte la PCA :
+plotPCA(vsd, intgroup=c("time"), returnData = TRUE) # D'abord je regarde seulement la condition (avant/ après traitement). La condition n'a pas l'air de distinguer les échantillons.
+plotPCA(vsd, intgroup=c("time", "sex")) # Je prends en compte la condition (avant/ après traitement) et le sexe
+
+# Je retourne à mon analyse
+# Je vais faire une Independent Hypothesis Weighing
+# L'IHW fait de multiples tests, en utilisant la covariance qui est indicative de la puissance du test
+# D'abord j'installe IHW:
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("IHW")
+library('IHW')
+# En fait c'est très long à installer et commme j'ai été interrompue par la coupure je préfère essayer de tracer un heatmap
+#en clusterisant les échantillons maintenant
+
+sampleDists <- dist(t(assay(vsd)))
+
+library("RColorBrewer")
+library(pheatmap)
+sampleDistMatrix <- as.matrix(sampleDists)
+rownames(sampleDistMatrix) <- paste(vsd$time, vsd$type, sep="-")
+colnames(sampleDistMatrix) <- NULL
+colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+pheatmap(sampleDistMatrix,
+         clustering_distance_rows=sampleDists,
+         clustering_distance_cols=sampleDists,
+         col=colors)
