@@ -32,7 +32,16 @@ SRR3308975
 cd /home/rstudio/disk/
 mkdir -p qualimap_output
 
-# 
+# Je lance qualimap sur tous les échantillons :
+# Je lui donne l'annotation du génome human (introns, exons, intergénique)
+# Je lui dis où stocker la sortie
+# Je lui donne les bam triés
+# On est en paired-end
+# On donne en input des bam déjà triés
+# On limite la RAM à utiliser, sinon ça plantait
+# On indique que le protocole de séquançage est straand-specific forward
+# Pour l'algo de comptage on prend 'proportionnel'. On aligne les reads 'proportionnellement' à leur score. Sinon, on
+#alignerait simplement le read avec score maximal, pour une séquence donnée.
 
 for srr in $SRR;
 do

@@ -5,28 +5,28 @@ library(apeglm)
 library("DESeq2", quietly = T)
 
 # Location of the data:
-dir <- "/home/rstudio/disk/salmon_quant" # Ici mettre le dossier dans lequel vous travaillez
+dir <- "/home/rstudio/disk/salmon_quant"
 
 
 # Import the data:
-#condition <- read.table("condition.csv", header = T) ### Donner la table des métadata
 condition <- read.delim("~/disk/condition.csv")
 samples <- data.frame(run=condition$Run, type=condition$subject_group, sex=condition$gender, time=condition$time_point, patient=condition$subject_id)
-#files <- file.path(dir, "salmon", samples$run, "quant.sf")
-samples$run = c("SRR3308956paired_quant", "SRR3308957paired_quant", "SRR3308973paired_quant",
-                "SRR3308974paired_quant", "SRR3308975paired_quant", "SRR3308976paired_quant") # Je change les lignes pour correspondre aux noms de mes dossiers
+samples$run = c("SRR3308956paired_quant", "SRR3308957paired_quant", "SRR3308972paired_quant",
+                "SRR3308974paired_quant", "SRR3308975paired_quant", "SRR3308975paired_quant") # Je change les lignes pour correspondre aux noms de mes dossiers
 files <- file.path(dir, samples$run, "quant.sf") # On va chercher le fichier avec la quantification
 names(files) <- samples$run
 
-# On fait le lien entre nom de gène et numéro de transcrit
+# On fait le lien entre nom de gène et numéro de transcrit :
+#(Les noms ne sont pas explicites car le code est adapté depuis le projet poisson clown)
 tx2gene <- as.character(read.table(files[1], header = T,sep = "\t")$Name)
 trinity.genes <- unlist(lapply(lapply(strsplit(x = tx2gene,split = "|",fixed=T), FUN = `[`,1), paste,collapse="_"))
 trinity.trans <- unlist(lapply(lapply(strsplit(x = tx2gene,split = "|",fixed=T), FUN = `[`,1:3), paste,collapse="|"))
 tx2gene <- data.frame(txname=trinity.trans, geneid=trinity.genes)
 
+# On fait l'importation en utilisant tximport :
 txi <- tximport(files, type="salmon", tx2gene=tx2gene)
 
-# On affiche la table de compte avec :
+# On affiche la table de comptes avec :
 txi$counts
 
 # Et on construit un 'DESeqDataSet' à partir de txi en utilisant les noms contenus dans samples
@@ -59,24 +59,23 @@ sum(res$padj < 0.1, na.rm=TRUE)
 # VST est un algo de stabilisation de la variance (normalisation par rapport à la taille de la bibliothèque)
 # blind = TRUE par défaut, mais cette option attribuerait bcp de différences 'vraies' à du bruit ; le tuto propose de définir blind = FALSE
 vsd <- vst(ddsTxi, blind=FALSE)
-#rld <- rlog(ddsTxi, blind=FALSE)
 head(assay(vsd), 3)
 
-# Maintenant je plotte la PCA :
+# Et je plotte la PCA :
 plotPCA(vsd, intgroup=c("time"), returnData = TRUE) # D'abord je regarde seulement la condition (avant/ après traitement). La condition n'a pas l'air de distinguer les échantillons.
 plotPCA(vsd, intgroup=c("time", "sex")) # Je prends en compte la condition (avant/ après traitement) et le sexe
 
 # Je retourne à mon analyse
-# Je vais faire une Independent Hypothesis Weighing
-# L'IHW fait de multiples tests, en utilisant la covariance qui est indicative de la puissance du test
-# D'abord j'installe IHW:
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("IHW")
-library('IHW')
-# En fait c'est très long à installer et commme j'ai été interrompue par la coupure je préfère essayer de tracer un heatmap
-#en clusterisant les échantillons maintenant
+# J'aimerais faire une Independent Hypothesis Weighing
+# L'IHW fait de multiples tests, en utilisant la covariable qui est indicative de la puissance du test
+# Il faut d'abord installer IHW:
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+#BiocManager::install("IHW")
+#library('IHW')
+# Mais en fait c'est très long à installer et ça fait planter toute ma session donc tant pis...
 
+# A la place de faire l'analyse statistique poussée, je vais représenter les data d'une autre façon, en utilisant une heatmap :
 sampleDists <- dist(t(assay(vsd)))
 
 library("RColorBrewer")
@@ -89,3 +88,6 @@ pheatmap(sampleDistMatrix,
          clustering_distance_rows=sampleDists,
          clustering_distance_cols=sampleDists,
          col=colors)
+# On voit que les échantillons après traitement clusterisent ensemble, mais un des échantillons avant et plus proche des
+#after que des before. Donc même si nous avons trouvé beaucoup de gènes différentiellement exprimés (cf analyses sur l'ensemble
+#des échantillons), ici on ne voit pas de différence claire entre les répondeurs avant et après traitement.
