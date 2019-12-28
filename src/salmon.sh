@@ -15,12 +15,12 @@ SRR3308975
 "
 
 # D'abord on génère l'index, ce qui est nécessaire car nous n'avons pas les fichiers BAM :
-# j'utilise un hash de k-mer de longueur 20
+# j'utilise un hash de k-mer de longueur 20 (nous avions choisi d'essayer chacun une longueur différente. Aucune différence
+#n'ai été remarquée entre k-mer de longueur 20 à 30, mais nous n'avions pas non plus les mêmes conditions/ échantillons...)
 #salmon index -t /home/rstudio/disk/ref_transcripts/Hsap_cDNA.fa \
 #  -i /home/rstudio/disk/salmon_index
 #  -k 20
 
-#We had some shorter reads so changed k from 31 to 25
 
 
 #files=`ls /home/rstudio/disk/trimmo_files/paired/SRR33089[56-75].*.fastq`
