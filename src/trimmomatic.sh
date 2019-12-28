@@ -1,5 +1,5 @@
 #! /bin/bash
-# Ici on va utiliser trimmomatic pour nettoyer les données
+# Ici on va utiliser Trimmomatic pour nettoyer les données
 
 data="/home/rstudio/disk"
 cd $data
@@ -9,8 +9,8 @@ mkdir -p paired # On va séparer les outputs paired et unpaired
 mkdir -p unpaired
 
 # On nomme les fichiers à prendre
-# J'aurais aimé faire une boucle pour parcourir comme il faut l'ensemble des fichiers d'un dossier, mais le plus simple était d'écrire les noms à la main
-#car il faut ensuite prendre les _1 et _2 pour chaque échantillon :
+# J'aurais aimé faire une boucle pour parcourir comme il faut l'ensemble des fichiers d'un dossier, mais le plus
+#simple était d'écrire les noms à la main car il faut ensuite prendre les _1 et _2 pour chaque échantillon :
 
 SRR="
 SRR3308956
