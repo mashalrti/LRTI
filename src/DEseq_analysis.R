@@ -12,12 +12,13 @@ dir <- "/home/rstudio/disk/salmon_quant"
 condition <- read.delim("~/disk/condition.csv")
 samples <- data.frame(run=condition$Run, type=condition$subject_group, sex=condition$gender, time=condition$time_point, patient=condition$subject_id)
 samples$run = c("SRR3308956paired_quant", "SRR3308957paired_quant", "SRR3308972paired_quant",
-                "SRR3308974paired_quant", "SRR3308975paired_quant", "SRR3308975paired_quant") # Je change les lignes pour correspondre aux noms de mes dossiers
+                "SRR3308974paired_quant", "SRR3308975paired_quant", "SRR3308975paired_quant") # Je garde uniquement
+#les patients que j'ai analysés jusque-là
 files <- file.path(dir, samples$run, "quant.sf") # On va chercher le fichier avec la quantification
 names(files) <- samples$run
 
 # On fait le lien entre nom de gène et numéro de transcrit :
-#(Les noms ne sont pas explicites car le code est adapté depuis le projet poisson clown)
+#(Les noms des variables ne sont pas explicites car le code est adapté depuis le projet poisson clown)
 tx2gene <- as.character(read.table(files[1], header = T,sep = "\t")$Name)
 trinity.genes <- unlist(lapply(lapply(strsplit(x = tx2gene,split = "|",fixed=T), FUN = `[`,1), paste,collapse="_"))
 trinity.trans <- unlist(lapply(lapply(strsplit(x = tx2gene,split = "|",fixed=T), FUN = `[`,1:3), paste,collapse="|"))
@@ -62,8 +63,10 @@ vsd <- vst(ddsTxi, blind=FALSE)
 head(assay(vsd), 3)
 
 # Et je plotte la PCA :
-plotPCA(vsd, intgroup=c("time"), returnData = TRUE) # D'abord je regarde seulement la condition (avant/ après traitement). La condition n'a pas l'air de distinguer les échantillons.
-plotPCA(vsd, intgroup=c("time", "sex")) # Je prends en compte la condition (avant/ après traitement) et le sexe
+plotPCA(vsd, intgroup=c("time"), returnData = TRUE) # D'abord je regarde seulement la condition (avant/ après traitement).
+#La condition n'a pas l'air de distinguer les échantillons.
+plotPCA(vsd, intgroup=c("time", "sex")) # Je prends en compte la condition (avant/ après traitement) et le sexe.
+#On ne voit pas de distinction claire en fonction de la condition ou du sexe.
 
 # Je retourne à mon analyse
 # J'aimerais faire une Independent Hypothesis Weighing
