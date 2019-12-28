@@ -18,4 +18,3 @@ do
 #fastqc "/home/rstudio/disk/sra_data/"$file -o "/home/rstudio/disk/fastqc_files" # Pour tous les fichiers
 fastqc $file -o "/home/rstudio/disk/fastqc_files" # Et juste les deux derniers
 done
-# et bim
