@@ -3,7 +3,8 @@
 
 #cd /home/rstudio/disk/ref_transcripts
 # Indexer des génomes demande beaucoup de RAM et nous n'arrivons pas à générer l'index entier
-# On a essayé de rajouter '--genomeChrBinNbits=min(18, log2(GenomeLength/NumberOfReferences))' mais cela n'a pas résolu le problème.
+# On a essayé de rajouter '--genomeChrBinNbits=min(18, log2(GenomeLength/NumberOfReferences))' mais cela n'a pas
+#résolu le problème.
 # Donc on va faire un subset du génome en ne gardant que les chromosomes.
 # D'abord, on récupère les headers qu'on veut garder:
 #grep ">"  Hsap_genome.fa |grep -v "_" |sed 's/>//g'> chr.txt
