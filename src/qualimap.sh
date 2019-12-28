@@ -2,7 +2,7 @@
 # On installe la dernière librairie nécessaire
 #sudo apt-get install libxtst6 -y
 
-#mkdir -p /home/rstudio/disk/SRR_tri_bam
+mkdir -p /home/rstudio/disk/SRR_tri_bam # -p indique qu'il faut créer le nouveau répertoire seulement s'il n'existe pas déjà
 
 SRR="
 SRR3308956
